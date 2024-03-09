@@ -1,9 +1,9 @@
-#Terminal Repeat Rate Settings 
+	#Terminal Repeat Rate Settings 
 gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 15
 gsettings set org.gnome.desktop.peripherals.keyboard delay 100
 
-#GUI Repeat Rate Settings
+	#GUI Repeat Rate Settings
 xset r rate 110 35
 
-#Mouse Wheel Fix (Only necessary with VMWare)
+	#Mouse Wheel Fix (Only necessary with VMWare)
 imwheel -b "4 5" > /dev/null 2>&1
