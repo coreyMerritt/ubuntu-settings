@@ -1,2 +1,2 @@
-#Location ~/.vimrc
+# Location: ~/.vimrc
 set wrap linebreak

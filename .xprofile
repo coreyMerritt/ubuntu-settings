@@ -1,3 +1,4 @@
+# Location: ~/.xprofile
 	#Terminal Repeat Rate Settings 
 gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 15
 gsettings set org.gnome.desktop.peripherals.keyboard delay 100
