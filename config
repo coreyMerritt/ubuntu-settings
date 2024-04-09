@@ -1,17 +1,29 @@
 #!/bin/bash
 
+user_home=$(eval echo ~$SUDO_USER)
+
+# Installs gsettings and adjust settings for terminal repeat rate
 apt install -y gsettings
 gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 15
 gsettings set org.gnome.desktop.peripherals.keyboard delay 100
 
+# Install xset and adjusts settings for GUI repeat rate
 apt install -y xset
 xset r rate 100 15
 
+# Installs and configures a fix for a mouse wheel bug in VMWare
 apt install -y imwheel
 imwheel -b "4 5" > /dev/null 2>&1
 
+# Installs a CLI version of ChatGPT
 curl -L -o chatgpt https://github.com/kardolus/chatgpt-cli/releases/latest/download/chatgpt-linux-amd64 && chmod +x chatgpt && sudo mv chatgpt /usr/local/bin/
-echo "Enter your OpenAI API Key: "
-read api_key
-export OPENAI_API_KEY="$api_key"
-mkdir -p ~/.chatgpt-cli
+API_KEY="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" 
+cp $user_home/.bashrc $user_home/_.bashrc 	# Creates a backup of the bash config file
+echo -e "export OPENAI_API_KEY=\"$API_KEY\"" >> $user_home/.bashrc
+. $user_home/.bashrc
+mkdir -p $user_home/.chatgpt-cli
+
+# Installs and configures vim
+apt install -y vim
+cp $user_home/.vimrc $user_home/_.vimrc
+cp -f ./.vimrc $user_home/.vimrc
