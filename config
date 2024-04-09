@@ -29,4 +29,4 @@ cp $user_home/.vimrc $user_home/_.vimrc
 cp -f ./.vimrc $user_home/.vimrc
 
 # Prompts to user to reset their bashrc
-echo -e "Run \". ~/.bashrc\" to complete the configuration."
+echo -e "\n\n\nRun \". ~/.bashrc\" to complete the configuration."
