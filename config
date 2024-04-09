@@ -17,7 +17,8 @@ imwheel -b "4 5" > /dev/null 2>&1
 
 # Installs a CLI version of ChatGPT
 curl -L -o chatgpt https://github.com/kardolus/chatgpt-cli/releases/latest/download/chatgpt-linux-amd64 && chmod +x chatgpt && sudo mv chatgpt /usr/local/bin/
-API_KEY="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" 
+echo -e "See https://platform.openai.com/account/api-keys for your API key.\nPlease enter your API key: "
+read API_KEY 
 cp $user_home/.bashrc $user_home/_.bashrc 	# Creates a backup of the bash config file
 echo -e "export OPENAI_API_KEY=\"$API_KEY\"" >> $user_home/.bashrc
 . $user_home/.bashrc
