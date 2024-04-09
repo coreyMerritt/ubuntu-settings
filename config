@@ -1,0 +1,17 @@
+#!/bin/bash
+
+apt install -y gsettings
+gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 15
+gsettings set org.gnome.desktop.peripherals.keyboard delay 100
+
+apt install -y xset
+xset r rate 100 15
+
+apt install -y imwheel
+imwheel -b "4 5" > /dev/null 2>&1
+
+curl -L -o chatgpt https://github.com/kardolus/chatgpt-cli/releases/latest/download/chatgpt-linux-amd64 && chmod +x chatgpt && sudo mv chatgpt /usr/local/bin/
+echo "Enter your OpenAI API Key: "
+read api_key
+export OPENAI_API_KEY="$api_key"
+mkdir -p ~/.chatgpt-cli
