@@ -11,7 +11,16 @@ apt install -y imwheel
 imwheel -b "4 5" > /dev/null 2>&1
 
 curl -L -o chatgpt https://github.com/kardolus/chatgpt-cli/releases/latest/download/chatgpt-linux-amd64 && chmod +x chatgpt && sudo mv chatgpt /usr/local/bin/
-echo "Enter your OpenAI API Key: "
-read api_key
-export OPENAI_API_KEY="$api_key"
-mkdir -p ~/.chatgpt-cli
+<<<<<<< HEAD
+echo -e "See https://platform.openai.com/account/api-keys for your API key.\nPlease enter your API key: "
+read API_KEY 
+cp $user_home/.bashrc $user_home/_.bashrc 	# Creates a backup of the bash config file
+echo -e "export OPENAI_API_KEY=\"$API_KEY\"" >> $user_home/.bashrc
+. $user_home/.bashrc
+mkdir -p $user_home/.chatgpt-cli
+
+# Installs and configures vim
+apt install -y vim
+cp $user_home/.vimrc $user_home/_.vimrc
+cp -f ./.vimrc $user_home/.vimrc
+>>>>>>> cb4a508 (Added additional functionality.)
