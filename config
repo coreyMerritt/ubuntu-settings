@@ -21,10 +21,12 @@ echo -e "See https://platform.openai.com/account/api-keys for your API key.\nPle
 read API_KEY 
 cp $user_home/.bashrc $user_home/_.bashrc 	# Creates a backup of the bash config file
 echo -e "export OPENAI_API_KEY=\"$API_KEY\"" >> $user_home/.bashrc
-. $user_home/.bashrc
 mkdir -p $user_home/.chatgpt-cli
 
 # Installs and configures vim
 apt install -y vim
 cp $user_home/.vimrc $user_home/_.vimrc
 cp -f ./.vimrc $user_home/.vimrc
+
+# Prompts to user to reset their bashrc
+echo -e "Run \". ~/.bashrc\" to complete the configuration."
